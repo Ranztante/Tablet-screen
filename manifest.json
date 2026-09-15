@@ -1,0 +1,5 @@
+{
+  "name": "Dashboard",
+  "display": "fullscreen",
+  "start_url": "./index.html"
+}
