@@ -11,7 +11,6 @@
   <style>
     body { 
       margin: 0; 
-      /* System-Schriftarten für einen sauberen "Apple-Look" */
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
       background: #000; 
       height: 100vh; 
@@ -20,10 +19,10 @@
       overflow: hidden; 
     }
     
-    /* Wetter: Apple-Style mit weichem Verlauf */
+    /* Wetter: Apple Dark Mode Style */
     #weather-container {
       flex: 1;
-      background: linear-gradient(180deg, #2b659c 0%, #69a7dc 100%);
+      background: linear-gradient(180deg, #0d1321 0%, #1d2d44 100%);
       padding: 15px;
       box-sizing: border-box;
       overflow: hidden;
@@ -48,7 +47,7 @@
 
   <!-- Wetter Bereich -->
   <div id="weather-container">
-    <a class="weatherwidget-io" href="https://forecast7.com/de/51d3212d02/leuna/" data-label_1="LEUNA" data-label_2="WETTER" data-font="Helvetica" data-icons="Climacons Animated" data-theme="pure" data-textcolor="#ffffff" data-highcolor="#ffffff" data-lowcolor="#d0e8f2" data-mooncolor="#f1c40f" data-cloudcolor="#ffffff" data-cloudfill="#ffffff" data-raincolor="#d0e8f2" data-snowcolor="#ffffff" style="display: block; width: 100%; height: 100%;">LEUNA WETTER</a>
+    <a class="weatherwidget-io" href="https://forecast7.com/de/51d3212d02/leuna/" data-label_1="LEUNA" data-label_2="WETTER" data-font="Helvetica" data-icons="Climacons Animated" data-theme="pure" data-textcolor="#ffffff" data-highcolor="#ffffff" data-lowcolor="#a0aec0" data-mooncolor="#f1c40f" data-cloudcolor="#a0aec0" data-cloudfill="#1d2d44" data-raincolor="#4ea8de" data-snowcolor="#ffffff" style="display: block; width: 100%; height: 100%;">LEUNA WETTER</a>
     <script>
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
     </script>
