@@ -5,69 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Smart Display</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #1a1a2e; color: #fff; overflow: hidden; }
-    .screen { width: 100vw; height: 100vh; display: none; flex-direction: column; }
-    .active { display: flex; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #1a1a2e; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
     
-    /* Startseite */
-    #home { flex-direction: row; }
-    .card { flex: 1; margin: 15px; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.2s; }
-    .card:active { transform: scale(0.98); }
-    .card h1 { font-size: 3.5rem; margin: 0; }
-    .card p { font-size: 1.5rem; opacity: 0.8; margin-top: 10px; }
-    
-    .weather-card { background: linear-gradient(135deg, #00B4DB, #0083B0); }
-    .calendar-card { background: linear-gradient(135deg, #514A9D, #240b36); }
-    
-    /* Detailansichten */
-    .back-btn { padding: 15px; background: #333; color: white; text-align: center; font-size: 1.5rem; font-weight: bold; cursor: pointer; border-bottom: 2px solid #222; }
-    .back-btn:active { background: #444; }
-    .content { flex: 1; display: flex; justify-content: center; align-items: center; padding: 10px; background: #fff; }
-    iframe { width: 100%; height: 100%; border: none; border-radius: 10px; }
-    #weather-container { width: 100%; height: 100%; padding: 20px; box-sizing: border-box; background: #fff; }
+    /* Wetter: Oberes Drittel (1 Teil) */
+    #weather-container {
+      flex: 1;
+      background: linear-gradient(135deg, #00B4DB, #0083B0);
+      padding: 15px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    /* Kalender: Untere zwei Drittel (2 Teile) */
+    #calendar-container {
+      flex: 2;
+      background: #fff;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    iframe { width: 100%; height: 100%; border: none; border-radius: 8px; }
   </style>
 </head>
 <body>
 
-  <!-- Startseite -->
-  <div id="home" class="screen active">
-    <div class="card weather-card" onclick="switchView('detail-weather')">
-      <h1>🌤️ Wetter</h1>
-      <p>Tippen für Details</p>
-    </div>
-    <div class="card calendar-card" onclick="switchView('detail-calendar')">
-      <h1>📅 Kalender</h1>
-      <p>Tippen für Details</p>
-    </div>
+  <!-- Wetter Bereich -->
+  <div id="weather-container">
+    <a class="weatherwidget-io" href="https://forecast7.com/de/51d3212d02/leuna/" data-label_1="LEUNA" data-label_2="WETTER" data-font="Arial" data-icons="Climacons Animated" data-theme="pure" data-basecolor="#87CEEB" data-accent="#4169E1" data-textcolor="#ffffff" data-highcolor="#ffffff" data-lowcolor="#e0e0e0" data-mooncolor="#f1c40f" data-cloudcolor="#ffffff" data-cloudfill="#4169E1" data-raincolor="#4169E1" data-snowcolor="#ffffff" style="display: block; width: 100%; height: 100%;">LEUNA WETTER</a>
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
   </div>
 
-  <!-- Detail: Wetter -->
-  <div id="detail-weather" class="screen">
-    <div class="back-btn" onclick="switchView('home')">⬅ Zurück zur Übersicht</div>
-    <div class="content">
-      <div id="weather-container">
-        <!-- Wetter-Widget mit angepassten, hellen Farben -->
-        <a class="weatherwidget-io" href="https://forecast7.com/de/51d3212d02/leuna/" data-label_1="LEUNA" data-label_2="WETTER" data-font="Arial" data-icons="Climacons Animated" data-theme="pure" data-basecolor="#87CEEB" data-accent="#4169E1" data-textcolor="#ffffff" data-highcolor="#ffffff" data-lowcolor="#e0e0e0" data-mooncolor="#f1c40f" data-cloudcolor="#ffffff" data-cloudfill="#4169E1" data-raincolor="#4169E1" data-snowcolor="#ffffff" style="width: 100%; height: 100%;">LEUNA WETTER</a>
-        <script>
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-        </script>
-      </div>
-    </div>
+  <!-- Kalender Bereich -->
+  <div id="calendar-container">
+    <iframe src="https://calendar.google.com/calendar/embed?src=cspittel99%40gmail.com&ctz=Europe%2FBerlin" frameborder="0" scrolling="no"></iframe>
   </div>
 
-  <!-- Detail: Kalender -->
-  <div id="detail-calendar" class="screen">
-    <div class="back-btn" onclick="switchView('home')">⬅ Zurück zur Übersicht</div>
-    <div class="content">
-      <iframe src="https://calendar.google.com/calendar/embed?src=cspittel99%40gmail.com&ctz=Europe%2FBerlin" frameborder="0" scrolling="no"></iframe>
-    </div>
-  </div>
-
-  <script>
-    function switchView(viewId) {
-      document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
-      document.getElementById(viewId).classList.add('active');
-    }
-  </script>
 </body>
 </html>
