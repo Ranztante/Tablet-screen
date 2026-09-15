@@ -1,5 +1,5 @@
 {
   "name": "Dashboard",
-  "display": "fullscreen",
-  "start_url": "./index.html"
+  "display": "standalone",
+  "start_url": "."
 }
