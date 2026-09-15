@@ -5,31 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Smart Display</title>
   
-  <!-- App-Modus für Vollbild -->
   <link rel="manifest" href="manifest.json">
   <meta name="mobile-web-app-capable" content="yes">
   
   <style>
     body { 
       margin: 0; 
-      font-family: Arial, sans-serif; 
-      background: #1a1a2e; 
+      /* System-Schriftarten für einen sauberen "Apple-Look" */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      background: #000; 
       height: 100vh; 
       display: flex; 
       flex-direction: column; 
       overflow: hidden; 
     }
     
-    /* Wetter: Oberes Drittel */
+    /* Wetter: Apple-Style mit weichem Verlauf */
     #weather-container {
       flex: 1;
-      background: linear-gradient(135deg, #00B4DB, #0083B0);
+      background: linear-gradient(180deg, #2b659c 0%, #69a7dc 100%);
       padding: 15px;
       box-sizing: border-box;
       overflow: hidden;
     }
 
-    /* Kalender: Untere zwei Drittel */
     #calendar-container {
       flex: 2;
       background: #fff;
@@ -49,7 +48,7 @@
 
   <!-- Wetter Bereich -->
   <div id="weather-container">
-    <a class="weatherwidget-io" href="https://forecast7.com/de/51d3212d02/leuna/" data-label_1="LEUNA" data-label_2="WETTER" data-font="Arial" data-icons="Climacons Animated" data-theme="pure" data-basecolor="#87CEEB" data-accent="#4169E1" data-textcolor="#ffffff" data-highcolor="#ffffff" data-lowcolor="#e0e0e0" data-mooncolor="#f1c40f" data-cloudcolor="#ffffff" data-cloudfill="#4169E1" data-raincolor="#4169E1" data-snowcolor="#ffffff" style="display: block; width: 100%; height: 100%;">LEUNA WETTER</a>
+    <a class="weatherwidget-io" href="https://forecast7.com/de/51d3212d02/leuna/" data-label_1="LEUNA" data-label_2="WETTER" data-font="Helvetica" data-icons="Climacons Animated" data-theme="pure" data-textcolor="#ffffff" data-highcolor="#ffffff" data-lowcolor="#d0e8f2" data-mooncolor="#f1c40f" data-cloudcolor="#ffffff" data-cloudfill="#ffffff" data-raincolor="#d0e8f2" data-snowcolor="#ffffff" style="display: block; width: 100%; height: 100%;">LEUNA WETTER</a>
     <script>
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
     </script>
