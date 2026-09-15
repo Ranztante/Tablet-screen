@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Smart Display</title>
+  <style>
+    body { margin: 0; display: flex; width: 200vw; height: 100vh; transition: transform 0.4s ease-in-out; overflow: hidden; background: #000; color: #fff; }
+    .screen { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+    iframe { width: 95%; height: 95%; border: none; border-radius: 10px; background: #fff; }
+    #weather { padding: 20px; box-sizing: border-box; }
+  </style>
+</head>
+<body>
+
+  <!-- Wetter-Ansicht -->
+  <div id="weather" class="screen">
+    <a class="weatherwidget-io" href="https://forecast7.com/de/51d3212d02/leuna/" data-label_1="LEUNA" data-label_2="WETTER" data-theme="dark" style="width: 100%;">LEUNA WETTER</a>
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
+  </div>
+
+  <!-- Kalender-Ansicht -->
+  <div id="calendar" class="screen">
+    <iframe src="DEIN_GOOGLE_KALENDER_LINK" frameborder="0" scrolling="no"></iframe>
+  </div>
+
+  <script>
+    let touchStartX = 0, currentScreen = 0;
+    
+    document.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener('touchend', e => {
+      let touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 50 && currentScreen === 0) {
+        currentScreen = 1;
+        document.body.style.transform = 'translateX(-100vw)';
+      } else if (touchEndX - touchStartX > 50 && currentScreen === 1) {
+        currentScreen = 0;
+        document.body.style.transform = 'translateX(0)';
+      }
+    });
+  </script>
+</body>
+</html>
