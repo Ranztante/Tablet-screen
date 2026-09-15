@@ -11,7 +11,8 @@
   <style>
     body { 
       margin: 0; 
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      /* Android Standard-Schriftart Roboto */
+      font-family: Roboto, sans-serif; 
       background: #000; 
       height: 100vh; 
       display: flex; 
@@ -19,19 +20,25 @@
       overflow: hidden; 
     }
     
-    /* Wetter: Apple Dark Mode Style */
+    /* Wetter: Android Material Design (Dark) */
     #weather-container {
       flex: 1;
-      background: linear-gradient(180deg, #0d1321 0%, #1d2d44 100%);
-      padding: 15px;
+      background: #1e1e1e;
+      display: flex;
+      align-items: stretch;
       box-sizing: border-box;
       overflow: hidden;
+    }
+
+    /* Zwingt das Wetter-Widget, die komplette Box auszufüllen */
+    #weather-container iframe {
+      height: 100% !important; 
     }
 
     #calendar-container {
       flex: 2;
       background: #fff;
-      padding: 10px;
+      padding: 8px;
       box-sizing: border-box;
     }
 
@@ -47,7 +54,7 @@
 
   <!-- Wetter Bereich -->
   <div id="weather-container">
-    <a class="weatherwidget-io" href="https://forecast7.com/de/51d3212d02/leuna/" data-label_1="LEUNA" data-label_2="WETTER" data-font="Helvetica" data-icons="Climacons Animated" data-theme="pure" data-textcolor="#ffffff" data-highcolor="#ffffff" data-lowcolor="#a0aec0" data-mooncolor="#f1c40f" data-cloudcolor="#a0aec0" data-cloudfill="#1d2d44" data-raincolor="#4ea8de" data-snowcolor="#ffffff" style="display: block; width: 100%; height: 100%;">LEUNA WETTER</a>
+    <a class="weatherwidget-io" href="https://forecast7.com/de/51d3212d02/leuna/" data-label_1="LEUNA" data-label_2="WETTER" data-font="Roboto" data-icons="Climacons Animated" data-theme="pure" data-basecolor="#1e1e1e" data-textcolor="#ffffff" data-highcolor="#ffffff" data-lowcolor="#9aa0a6" data-mooncolor="#fbbc04" data-cloudcolor="#9aa0a6" data-cloudfill="#1e1e1e" data-raincolor="#8ab4f8" data-snowcolor="#ffffff" style="display: block; width: 100%; height: 100%;">LEUNA WETTER</a>
     <script>
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
     </script>
